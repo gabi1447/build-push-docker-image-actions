@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: self-hosted
+    runs-on: centos-runner
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -26,6 +26,6 @@ jobs:
       - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
-      - name: Run pwd command
-        run: ls
+      - name: cat README.md
+        run: cat README.md
 
