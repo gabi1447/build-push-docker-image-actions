@@ -28,4 +28,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: cat README.md
         run: cat README.md
+      - name: echoing commit
+        run: echo "${{ github.sha }}"
 
