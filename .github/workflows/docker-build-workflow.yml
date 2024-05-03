@@ -27,4 +27,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: user/app:${{ github.sha }}
+          tags: gabi1447/nginx-actions:${{ github.sha }}
