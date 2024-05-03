@@ -7,7 +7,7 @@ on:
       
 jobs:
   docker-build:
-    runs-on: centos-runner
+    runs-on: runner-centos
     steps:
       -
         name: Set up QEMU
