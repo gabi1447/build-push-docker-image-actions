@@ -39,5 +39,7 @@ jobs:
           key: ${{ secrets.P_KEY_VM }}
           port: ${{ secrets.PORT_VM }}
           script: |
-            whoami
-            docker images
+            docker stop actions-docker
+            docker rm actions-docker
+            docker pull gabi1447/nginx-actions:${{ github.sha }} 
+            docker run -d --name actions-docker -p 8081:80 gabi1447/nginx-actions:${{ github.sha }}
