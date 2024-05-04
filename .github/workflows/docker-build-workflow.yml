@@ -3,6 +3,8 @@ name: Build and Push Docker Image
 on:
   push:  
     branches: main
+    paths: 
+      - 'html/index.html' # this action will be executed when the index.html file is updated
 
 jobs:
   build-and-push:
