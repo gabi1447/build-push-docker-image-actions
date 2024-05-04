@@ -2,7 +2,9 @@ name: Build and Push Docker Image
 
 on:
   push:  
-    branches: main
+    branches: ssh-local-deploy-actions
+    paths: 
+      - 'html/index.html' # this action will be executed when the index.html file is updated
 
 jobs:
   build-and-push:
@@ -28,3 +30,14 @@ jobs:
         with:
           push: true
           tags: gabi1447/nginx-actions:${{ github.sha }}
+      
+      - name: Establishing SSH connection
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST_IP_VM }}
+          username: ${{ secrets.USERNAME_VM }}
+          key: ${{ secrets.P_KEY_VM }}
+          port: ${{ secrets.PORT_VM }}
+          script: |
+            whoami
+            docker images
